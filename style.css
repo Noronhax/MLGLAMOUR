@@ -1,0 +1,281 @@
+:root {
+  --rosa: #ffb6c1;
+  --roxo: #c084fc;
+  --branco: #ffffff;
+  --cinza-claro: #f9f9f9;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--cinza-claro);
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+header {
+  background: linear-gradient(to right, var(--rosa), var(--roxo));
+  padding: 20px;
+  text-align: center;
+  color: var(--branco);
+}
+
+h1 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+nav.menu-categorias {
+  margin-top: 15px;
+  text-align: center;
+}
+
+nav button {
+  margin: 5px;
+  padding: 10px 20px;
+  border: none;
+  background-color: var(--branco);
+  color: #333;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+nav button:hover {
+  background-color: var(--rosa);
+  color: var(--branco);
+}
+
+.carrinho-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.abrir-carrinho {
+  background-color: var(--roxo);
+  color: var(--branco);
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.carrinho {
+  background-color: var(--branco);
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 10px;
+  width: 250px;
+}
+
+.frete-simulador {
+  position: fixed;
+  top: 100px;
+  right: 20px;
+  background-color: var(--branco);
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  width: 250px;
+  z-index: 999;
+}
+
+main {
+  padding: 20px;
+}
+
+.categoria {
+  display: none;
+}
+
+.categoria.ativa {
+  display: block;
+}
+
+.produto {
+  background-color: var(--branco);
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 15px;
+  display: inline-block;
+  width: 200px;
+  text-align: center;
+  vertical-align: top;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.produto img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.produto h3 {
+  margin: 10px 0 5px;
+}
+
+.produto .preco {
+  color: var(--roxo);
+  font-weight: bold;
+}
+
+.produto button {
+  background-color: var(--rosa);
+  color: var(--branco);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+.quantidade {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.quantidade button {
+  padding: 5px;
+  font-size: 14px;
+  width: 30px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1001;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: var(--branco);
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 300px;
+  border-radius: 10px;
+}
+
+.modal-content .close {
+  float: right;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.whatsapp-button {
+  width: 100%;
+  background-color: #25d366;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+footer.rodape {
+  background: linear-gradient(to right, #ffb6c1, #d98dd6, #c084fc);
+  color: #eee;
+  padding: 40px 20px;
+  font-size: 20px;
+}
+.rodape-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+  gap: 40px;
+}
+.rodape-logo {
+  flex: 1 1 300px;
+}
+.rodape-links {
+  display: flex;
+  flex: 2 1 500px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.rodape-links h4 {
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #fff;
+}
+.rodape-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.rodape-links li {
+  margin-bottom: 6px;
+}
+.rodape-links a {
+  color: #eee;
+  text-decoration: none;
+}
+.rodape-links a:hover {
+  text-decoration: underline;
+}
+.rodape-bottom {
+  text-align: center;
+  margin-top: 30px;
+  border-top: 1px solid #333;
+  padding-top: 20px;
+}
+.frete-container {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  padding: 12px 16px;
+  max-width: 240px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 14px;
+  color: #6b4a7e;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.frete-container input[type="text"] {
+  border: 1px solid #d6b3ec;
+  border-radius: 8px;
+  padding: 8px;
+  background: #f9f1fc;
+  color: #4a2c6a;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.frete-container input:focus {
+  border-color: #b987dd;
+}
+
+.frete-container button {
+  background-color: #b35be0;
+  border: none;
+  color: white;
+  padding: 8px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.frete-container button:hover {
+  background-color: #9a48c2;
+}
+
+#resultado-frete p {
+  margin: 0;
+}

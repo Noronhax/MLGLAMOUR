@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ML GLAMOUR</title>
+  <link rel="icon" href="assets/imagens/logo.png" type="image/png">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <img src="assets/imagens/logo.png"  style="max-width: 100px; margin-bottom: 0px; margin-right: 0%;" />
+    <h1>ML GLAMOUR</h1>
+    <nav class="menu-categorias">
+      <button onclick="mostrarCategoria('principal')">Início</button>
+      <button onclick="mostrarCategoria('biquinis')">Biquínis</button>
+      <button onclick="mostrarCategoria('vestidos')">Vestidos</button>
+      <button onclick="mostrarCategoria('novidades')">novidades</button>
+      <button onclick="mostrarCategoria('bodys')">Bodys</button>
+      <button onclick="mostrarCategoria('calcas')">Calças</button>
+      <button onclick="mostrarCategoria('jeans')">Jeans</button>
+      <button onclick="mostrarCategoria('jaquetas')">Jaquetas</button>
+      <button onclick="mostrarCategoria('camisas')">Camisas</button>
+    </nav>
+  </header>
+
+  <div class="carrinho-container">
+    <button class="abrir-carrinho" onclick="toggleCarrinho()">🛒 Carrinho (<span id="qtd-carrinho">0</span>)</button>
+    <div class="carrinho" id="carrinho" style="display: none;">
+      <h3>Seu Carrinho</h3>
+      <ul id="itens-carrinho"></ul>
+      <p id="total-carrinho">Total: R$ 0,00</p>
+      <input type="text" id="cupom" placeholder="Digite o cupom" />
+      <button onclick="aplicarCupom()">Aplicar Cupom</button>
+      <button onclick="abrirCheckout()">Finalizar Compra</button>
+    </div>
+  </div>
+
+  <div class="frete-container" style="margin-left: 10%;">
+  <label for="cep">Simular Frete:</label>
+  <input type="text" id="cep" name="cep" placeholder="Digite seu CEP" maxlength="8" />
+  <button type="button" onclick="calcularFrete()">Calcular</button>
+</div>
+
+<script>
+  // Valor de frete fixo (você pode mudar aqui)
+  const FRETE_FIXO = 19.90;
+
+  function calcularFrete() {
+    const cep = document.getElementById('cep').value;
+    if (cep.length !== 8 || isNaN(cep)) {
+      alert("Por favor, digite um CEP válido com 8 números.");
+      return;
+    }
+    alert(`O valor do frete para o CEP ${cep} é R$ ${FRETE_FIXO.toFixed(2)}`);
+  }
+</script>
+
+  <main id="conteudo">
+    <section id="principal" class="categoria ativa">
+      <h2>Destaques</h2>
+      <div class="produto">
+        <img src="assets/imagens/vestido.jpeg" alt="Produto" />
+        <h3>Vestido Curto</h3>
+        <p class="preco">R$ 129.90</p>
+        <div class="quantidade">
+        </div>
+        <button onclick="adicionarAoCarrinho('Vestido Curto', 129.90, 'vestidos')">Comprar</button>
+      </div>
+    <div class="produto">
+      <img src="assets/imagens/vestido.jpeg" alt="Produto" />
+      <h3>Top Rosa</h3>
+      <p class="preco">R$ 79.90</p>
+      <div class="quantidade">
+      </div>
+      <button onclick="adicionarAoCarrinho('Top Rosa', 79.90, 'camisas')">Comprar</button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .produtos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: ;
+  }  
+</style>
+
+     <section id="biquinis" class="categoria">
+      <h2>Biquínis</h2>
+      <div class="produto">
+        <img src="assets/imagens/teste1.jpeg" alt="Produto" />
+        <h3>Vestido Curto</h3>
+        <p class="preco">R$ 129.90</p>
+        <div class="quantidade">
+        </div>
+        <button onclick="adicionarAoCarrinho('Vestido Curto', 129.90, 'vestidos')">Comprar</button>
+      </div>
+
+    <div class="produto">
+      <img src="assets/imagens/teste1.jpeg" alt="Produto" />
+      <h3>Top Rosa</h3>
+      <p class="preco">R$ 79.90</p>
+      <div class="quantidade">
+      </div>
+      <button onclick="adicionarAoCarrinho('Top Rosa', 79.90, 'camisas')">Comprar</button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .produtos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: ;
+  }  
+</style>
+
+<section id="vestidos" class="categoria">
+      <h2>Vestidos</h2>
+      <div class="produto">
+        <img src="assets/imagens/vestidolongo.jpeg" alt="Produto" />
+        <h3>Vestido Curto</h3>
+        <p class="preco">R$ 129.90</p>
+        <div class="quantidade">
+        </div>
+        <button onclick="adicionarAoCarrinho('Vestido Curto', 129.90, 'vestidos')">Comprar</button>
+      </div>
+
+    <div class="produto">
+      <img src="assets/imagens/vestidolongo.jpeg" alt="Produto" />
+      <h3>Top Rosa</h3>
+      <p class="preco">R$ 79.90</p>
+      <div class="quantidade">
+      </div>
+      <button onclick="adicionarAoCarrinho('Top Rosa', 79.90, 'camisas')">Comprar</button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .produtos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: ;
+  }  
+</style>
+
+<section id="novidades" class="categoria">
+      <h2>Novidades</h2>
+      <div class="produto">
+        <img src="assets/imagens/vestidolongo.jpeg" alt="Produto" />
+        <h3>Vestido preto longo</h3>
+        <p class="preco">R$ 129.90</p>
+        <div class="quantidade">
+        </div>
+        <button onclick="adicionarAoCarrinho('Vestido Curto', 129.90, 'vestidos')">Comprar</button>
+      </div>
+
+    <div class="produto">
+      <img src="assets/imagens/vestidolongo.jpeg" alt="Produto" />
+      <h3>Top Rosa</h3>
+      <p class="preco">R$ 79.90</p>
+      <div class="quantidade">
+      </div>
+      <button onclick="adicionarAoCarrinho('Top Rosa', 79.90, 'camisas')">Comprar</button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .produtos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: ;
+  }  
+</style>
+
+<section id="bodys" class="categoria">
+      <h2>bodys</h2>
+      <div class="produto">
+        <img src="assets/imagens/body.jpeg" alt="Produto" />
+        <h3>Vestido Curto</h3>
+        <p class="preco">R$ 129.90</p>
+        <div class="quantidade">
+        </div>
+        <button onclick="adicionarAoCarrinho('Vestido Curto', 129.90, 'vestidos')">Comprar</button>
+      </div>
+
+    <div class="produto">
+      <img src="assets/imagens/body.jpeg" alt="Produto" />
+      <h3>Top Rosa</h3>
+      <p class="preco">R$ 79.90</p>
+      <div class="quantidade">
+      </div>
+      <button onclick="adicionarAoCarrinho('Top Rosa', 79.90, 'camisas')">Comprar</button>
+    </div>
+  </div>
+</section>
+
+<section id="calcas" class="categoria">
+      <h2>Calças</h2>
+      <div class="produto">
+        <img src="assets/imagens/calça.jpeg" alt="Produto" />
+        <h3>Vestido Curto</h3>
+        <p class="preco">R$ 129.90</p>
+        <div class="quantidade">
+        </div>
+        <button onclick="adicionarAoCarrinho('Vestido Curto', 129.90, 'vestidos')">Comprar</button>
+      </div>
+
+    <div class="produto">
+      <img src="assets/imagens/calça.jpeg" alt="Produto" />
+      <h3>Top Rosa</h3>
+      <p class="preco">R$ 79.90</p>
+      <div class="quantidade">
+      </div>
+      <button onclick="adicionarAoCarrinho('Top Rosa', 79.90, 'camisas')">Comprar</button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .produtos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: ;
+  }  
+</style>
+
+<section id="jeans" class="categoria">
+      <h2>jeans</h2>
+      <div class="produto">
+        <img src="assets/imagens/download.jpeg" alt="Produto" />
+        <h3>Vestido Curto</h3>
+        <p class="preco">R$ 129.90</p>
+        <div class="quantidade">
+        </div>
+        <button onclick="adicionarAoCarrinho('Vestido Curto', 129.90, 'vestidos')">Comprar</button>
+      </div>
+
+    <div class="produto">
+      <img src="assets/imagens/download.jpeg" alt="Produto" />
+      <h3>Top Rosa</h3>
+      <p class="preco">R$ 79.90</p>
+      <div class="quantidade">
+      </div>
+      <button onclick="adicionarAoCarrinho('Top Rosa', 79.90, 'camisas')">Comprar</button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .produtos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: ;
+  }  
+</style>
+
+<section id="jaquetas" class="categoria">
+      <h2>jaquetas</h2>
+      <div class="produto">
+        <img src="assets/imagens/jaqueta.jpeg" alt="Produto" />
+        <h3>Vestido Curto</h3>
+        <p class="preco">R$ 129.90</p>
+        <div class="quantidade">
+        </div>
+        <button onclick="adicionarAoCarrinho('Vestido Curto', 129.90, 'vestidos')">Comprar</button>
+      </div>
+
+    <div class="produto">
+      <img src="assets/imagens/jaqueta.jpeg" alt="Produto" />
+      <h3>Top Rosa</h3>
+      <p class="preco">R$ 79.90</p>
+      <div class="quantidade">
+      </div>
+      <button onclick="adicionarAoCarrinho('Top Rosa', 79.90, 'camisas')">Comprar</button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .produtos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: ;
+  }  
+</style>
+
+<section id="camisas" class="categoria">
+      <h2>Camisas</h2>
+      <div class="produto">
+        <img src="assets/imagens/camisa.jpeg" alt="Produto" />
+        <h3>Vestido Curto</h3>
+        <p class="preco">R$ 129.90</p>
+        <div class="quantidade">
+        </div>
+        <button onclick="adicionarAoCarrinho('Vestido Curto', 129.90, 'vestidos')">Comprar</button>
+      </div>
+
+    <div class="produto">
+      <img src="assets/imagens/camisa.jpeg" alt="Produto" />
+      <h3>Top Rosa</h3>
+      <p class="preco">R$ 79.90</p>
+      <div class="quantidade">
+      </div>
+      <button onclick="adicionarAoCarrinho('Top Rosa', 79.90, 'camisas')">Comprar</button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .produtos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: ;
+  }  
+</style>
+
+  </main>
+
+  <div id="modal-checkout" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="fecharCheckout()">&times;</span>
+      <h2>Finalizar Compra</h2>
+      <div id="resumoCheckout"></div>
+      <label><input type="radio" name="pagamento" value="pix" checked /> PIX</label>
+      <label><input type="radio" name="pagamento" value="cartao" /> Cartão</label>
+      <label><input type="radio" name="pagamento" value="boleto" /> Boleto</label>
+      <button class="whatsapp-button" onclick="finalizarNoWhatsapp()">Finalizar no WhatsApp</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <footer class="rodape">
+  <div class="rodape-container">
+    <div class="rodape-logo">
+      <img src="assets/imagens/logo.png" alt="ML GLAMOUR" style="max-width: 120px; margin-bottom: 10px;" />
+      <p>A ML GLAMOUR tem moda para todos os estilos! Encontre peças modernas e de qualidade com opções que vão do casual ao sofisticado. Veste sua personalidade do dia a dia à ocasião especial.</p>
+    </div>
+    <div class="rodape-links">
+      <div>
+        <h4>Categorias</h4>
+        <ul>
+          <li><a href="novidades">Novidades</a></li>
+          <li><a href="vestidos">Vestidos</a></li>
+          <li><a href="jaquetas">Jaquetas</a></li>
+          <li><a href="bodys">Body</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Informações</h4>
+        <ul>
+          <li><a href="#">Política de Privacidade</a></li>
+          <li><a href="#">Troca e Devolução</a></li>
+          <li><a href="#">Termos de Uso</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Atendimento</h4>
+        <p>mariatendimento@gmail.com</p>
+        <a href="https://www.instagram.com/noronhaherickz_/" target="_blank" style="display:inline-block; margin-top:10px;">
+          <img src="assets/imagens/insta.png" alt="Instagram" width="24" height="24" />
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="rodape-bottom">
+    <img src="assets/imagens/cartoes.png" alt="Formas de pagamento" style="max-width: 15%; margin-bottom: 10px;" />
+    <img src="assets/imagens/seg.png" alt="Loja Protegida" style=" height: 50px;" />
+  </div>
+</footer>
+
+
+</body>
+</html>
