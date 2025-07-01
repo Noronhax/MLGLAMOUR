@@ -25,6 +25,20 @@
     </nav>
   </header>
 
+  <div id="conteudo">
+  <div class="produto">
+    <img src="assets/imagens/vestido.jpeg" alt="CAMISA1" width="150">
+    <p>CAMISA1</p>
+    <button onclick="adicionarAoCarrinho('camisa.jpg', 'Camisa Preta')">Adicionar ao carrinho</button>
+  </div>
+</div>
+
+<hr>
+
+<h2>Carrinho</h2>
+<div id="carrinho"></div>
+
+  
   <div class="carrinho-container">
     <button class="abrir-carrinho" onclick="toggleCarrinho()">🛒 Carrinho (<span id="qtd-carrinho">0</span>)</button>
     <div class="carrinho" id="carrinho" style="display: none;">
